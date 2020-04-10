@@ -1,0 +1,12 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: ghost
+  namespace: demo
+spec:
+  releaseName: ghost
+  chart:
+    git: ssh://git@github.com/michaelperel/helm-flux
+    ref: master
+    path: hello-world
