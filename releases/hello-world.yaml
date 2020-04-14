@@ -2,7 +2,7 @@
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
-  name: hello-world2
+  name: hello-world
   namespace: demo
 spec:
   releaseName: hello-world
