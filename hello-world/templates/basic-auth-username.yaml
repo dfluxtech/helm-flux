@@ -3,7 +3,7 @@ kind: SealedSecret
 metadata:
   creationTimestamp: null
   name: basic-auth-username
-  namespace: {{ .Release.Namespace }}
+  namespace: demo
 spec:
   encryptedData:
     password: AgAbnVPQ54idAh9NMkwLfdqF3UsSCdWCsMby5dZHMZWSNFsDJaXmKA6qJsBGIsLkZ5TjAmgyjqL7yRuwKOTkpOnheR64HrhHNBLoELe4/4UucxTfeWUMTLrPT9DLsd4Xqx5Oa3n6rU28kOPsP/8skg1Y3iC7jFm08DBU3ttYWjRxk26zXlwH1Z3ljOy8f/ImCAaftrifCaYS0GDv7i3++5He/VJWHib9+hgX9D6cXMkzHInLDjjJBE276sfYkK+IVd6MiCK2QqLPzKZ0g6X3T+6KdynGUh/61R0nD9AbEQvSmOTSb6nNhCwQSf5fGMJ49vBzQbh6P37IazEB45Io9FatR2vyJF5REwQdHktJ7L5nu25HthvZ6XLUXKgiGU3tjoJ9avWD0hoPwr8tWqPAiKKfmV2TafEcmI7UcUBJxrlIDQEKOxOBR3mkqvb8SfwebGTbw7Y1IiVYSelpM8RQUcMWXdZldtv9cIIlI+0SZmBZWbrcrus1mpUG4u7FZXuc2dh4+UjZLnnWfCKeJJW9dYgWg7jg+CZ9Fn+AU0SvRjsjZJvS9hBZpPrVCEsrLo3QiMiziJ2g8qsfbUX2T1E+BxGtch8lPJMFuEutaSBngCZ338+dMJC61tNJql0Io1pxWCnGLlCPHFQGEjk8bdc2VHSFFzFYG1QWKgohzk9tPzV5ibNPQjM44v29YK5T0zI3qeNieNOCsg==
@@ -12,5 +12,5 @@ spec:
     metadata:
       creationTimestamp: null
       name: basic-auth-username
-      namespace: {{ .Release.Namespace }}
+      namespace: demo
 
