@@ -21,7 +21,7 @@ spec:
           valueFrom:
             secretKeyRef:
               name: basic-auth
-              key: username
+              key: user
         - name: SECRET_PASSWORD
           valueFrom:
             secretKeyRef:
