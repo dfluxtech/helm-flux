@@ -3,8 +3,6 @@ kind: Deployment
 metadata:
   name: webapp1
   namespace: {{ .Values.namespace }}
-  labels:
-    date: {{ .Release.Time.Seconds }}
 spec:
   replicas: 4
   selector:
