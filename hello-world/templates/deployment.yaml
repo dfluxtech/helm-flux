@@ -15,5 +15,16 @@ spec:
       containers:
       - name: webapp1
         image: {{ .Values.image }} 
+        env:
+        - name: SECRET_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: basic-auth
+              key: username
+      - name: SECRET_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: basic-auth
+              key: password
         ports:
         - containerPort: 80
