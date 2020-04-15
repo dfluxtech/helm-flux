@@ -6,7 +6,7 @@ metadata:
   labels:
     date: {{ .Release.Time.Seconds }}
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
       app: webapp1
