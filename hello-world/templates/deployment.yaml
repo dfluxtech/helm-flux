@@ -20,12 +20,12 @@ spec:
         - name: SECRET_USERNAME
           valueFrom:
             secretKeyRef:
-              name: basic-auth
-              key: user
+              name: basic-auth-username
+              key: username
         - name: SECRET_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: basic-auth
+              name: basic-auth-username
               key: password
         ports:
         - containerPort: 80
