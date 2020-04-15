@@ -1,2 +1,1 @@
 image: katacoda/docker-http-server:latest
-namespace: demo
