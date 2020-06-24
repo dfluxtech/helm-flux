@@ -2,8 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: webapp1
+  namespace: demo
 spec:
-  replicas: 5
+  replicas: 1
   selector:
     matchLabels:
       app: webapp1
@@ -15,16 +16,5 @@ spec:
       containers:
       - name: webapp1
         image: {{ .Values.image }} 
-        env:
-        - name: SECRET_USERNAME
-          valueFrom:
-            secretKeyRef:
-              name: basic-auth-username
-              key: username
-        - name: SECRET_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: basic-auth-username
-              key: password
         ports:
         - containerPort: 80
