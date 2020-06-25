@@ -1,0 +1,96 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: flux
+  namespace: demo
+rules:
+  # create the resources for our service (and more, but resourceNames cannot be used with create)
+  - apiGroups:
+      - ""
+    resources:
+      - services
+    verbs:
+      - create
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+    verbs:
+      - create
+  - apiGroups:
+      - networking.k8s.io
+    resources:
+      - networkpolicies
+    verbs:
+      - create
+
+  # manage the resources for our service
+  - apiGroups:
+      - ""
+    resources:
+      - services
+    resourceNames:
+      - webapp1-service
+    verbs:
+      - get
+      - patch
+  # the application it self
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+    resourceNames:
+      - webapp1
+    verbs:
+      - get
+      - patch
+  #for network policies
+  - apiGroups:
+      - networking.k8s.io
+    resources:
+      - networkpolicies
+    resourceNames:
+      - webapp1-service
+    verbs:
+      - get
+      - patch
+
+  # get namespace or Flux will mark it as inaccessible
+  - apiGroups:
+      - ""
+    resources:
+      - namespaces
+    resourceNames:
+      - demo
+    verbs:
+      - get
+      - list
+
+  # discover controllers
+  # Flux will complain if any of those are missing when running list-images or list-controllers
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+      - daemonsets
+      - statefulsets
+    verbs:
+      - list
+  - apiGroups:
+      - batch
+    resources:
+      - cronjobs
+    verbs:
+      - list
+  - apiGroups:
+      - flux.weave.works
+    resources:
+      - helmreleases
+    verbs:
+      - list
+  - apiGroups:
+      - helm.integrations.flux.weave.works
+    resources:
+      - fluxhelmreleases
+    verbs:
+      - list

@@ -1,1 +1,4 @@
 image: katacoda/docker-http-server:latest
+service:
+  type: ClusterIP
+  port: 80
